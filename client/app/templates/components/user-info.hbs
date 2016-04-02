@@ -1,0 +1,17 @@
+
+{{#unless user.login}}
+<li>
+  <a href="/api/twitter/connect" class="">
+    <i class="fa fa-twitter"></i>
+    Sign in with Twitter
+  </a>
+</li>
+{{else}}
+<li class="dropdown user-login-info">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+      <a href="/"><img src="{{user.image}}" /> {{user.name}}</a> <span class="caret"></span></a>
+    <ul class="dropdown-menu" role="menu">
+      <li><a href="/api/user/logout">Logout</a></li>
+    </ul>
+</li>
+{{/unless}}

@@ -1295,7 +1295,7 @@ catch(err) {
 });
 
 if (!runningTests) {
-  require("client/app")["default"].create({"name":"client","version":"0.0.0+de9cd6b4"});
+  require("client/app")["default"].create({"name":"client","version":"0.0.0+145769f1"});
 }
 
 /* jshint ignore:end */

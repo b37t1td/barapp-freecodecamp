@@ -1,0 +1,57 @@
+
+{{#if isLoading}}
+<div class="text-center">
+  <h3><i class="fa fa-spinner fa-spin"></i></h3>
+</div>
+{{else}}
+
+{{#if model}}
+  <h2>{{term}} in {{location}} :</h2>
+  <hr />
+{{else}}
+  <h2> Looks like nothing found for you... sorry</h2>
+{{/if}}
+
+<br />
+<div class="row">
+{{#each model as |item|}}
+<div class="place-box col-xs-12 col-sm-6">
+<div class="graphic pull-left">
+  <div class="image">
+    <img src="{{item.image_url}}" />
+  </div>
+  <div class="stars">
+    <img src="{{item.rating_img_url}}" />
+  </div>
+</div>
+
+<div class="desc">
+  {{#if application.user.login}}
+    <a  {{action "amGoing" item}} class="btn btn-sm btn-primary pull-right"><i class="fa fa-star"></i> &nbsp; I'll go</a>
+  {{else}}
+    <a href="/api/twitter/connect" class="btn btn-sm btn-info pull-right"><i class="fa fa-twitter"></i> &nbsp; Log in</a>
+  {{/if}}
+  <h3><a href="{{item.url}}">{{item.name}}</a>
+
+  </h3>
+  <p>{{item.snippet_text}}</p>
+</div>
+
+</div>
+{{/each}}
+</div>
+
+
+
+<ul class="pager">
+  <li class="previous {{unless hasPreviousPage 'disabled'}}">
+    {{#if hasPreviousPage}}
+      {{#link-to 'home' (query-params page=prevPage)}}← back{{/link-to}}
+     {{/if}}
+  </li>
+ <li class="next {{unless hasNextPage 'disabled'}}">
+   {{#if hasNextPage}}
+     {{#link-to 'home' (query-params page=nextPage)}}next →{{/link-to}}
+    {{/if}}</li>
+</ul>
+{{/if}}
