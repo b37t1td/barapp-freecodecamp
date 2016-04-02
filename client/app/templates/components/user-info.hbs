@@ -1,7 +1,7 @@
 
 {{#unless user.login}}
 <li>
-  <a href="/api/twitter/connect" class="">
+  <a href="/api/twitter/connect?term={{view.application.term}}&city={{view.application.city}}&page={{view.application.home.page}}" class="">
     <i class="fa fa-twitter"></i>
     Sign in with Twitter
   </a>

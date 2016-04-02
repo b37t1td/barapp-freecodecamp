@@ -1,4 +1,5 @@
 var oAuth = require('oauth');
+var qs = require('qs');
 
 var consumer = new oAuth.OAuth(
     "https://twitter.com/oauth/request_token",
@@ -11,6 +12,9 @@ var consumer = new oAuth.OAuth(
 
 module.exports = function(app, db) {
   app.get('/api/twitter/connect', function(req, res) {
+
+      req.session.lastParams = req.query;
+
       consumer.getOAuthRequestToken(function(error, oauthToken, oauthTokenSecret, results) {
         if (error) {
           req.status(500).end();
@@ -39,7 +43,7 @@ module.exports = function(app, db) {
                   if (err) return res.status(500).end();
 
                   req.session.user = data;
-                  res.redirect('/');
+                  res.redirect('/#/?' + qs.stringify(req.session.lastParams));
                 });
           });
         }

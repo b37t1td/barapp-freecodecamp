@@ -5,6 +5,6 @@
   {{#if view.isLoggedIn}}
     <a  {{action "amGoing" view.item target="controller"}} class="btn btn-sm btn-success pull-right"><i class="fa fa-star"></i> &nbsp; follow</a>
   {{else}}
-    <a href="/api/twitter/connect" class="btn btn-sm btn-info pull-right"><i class="fa fa-twitter"></i> &nbsp; Log in</a>
+    <a href="/api/twitter/connect?term={{view.application.term}}&city={{view.application.city}}&page={{view.application.home.page}}" class="btn btn-sm btn-info pull-right"><i class="fa fa-twitter"></i> &nbsp; Log in</a>
   {{/if}}
 {{/if}}

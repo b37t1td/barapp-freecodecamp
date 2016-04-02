@@ -7,8 +7,7 @@ export default Ember.Controller.extend({
   location : {},
   city : Ember.computed.alias('location.city'),
   term : 'Nightlife',
-
-
+  home : Ember.inject.controller(),
 
   actions : {
     changeLocation(loc) {
