@@ -23,7 +23,6 @@ var getClientAddress = function (req) {
 
 module.exports = function(app, db) {
   app.get('/api/ip', function(req,res) {
-    //res.send(JSON.stringify({ ip : getClientAddress(req)})).end();
     var ip = getClientAddress(req);
 
     request.get({
@@ -31,7 +30,6 @@ module.exports = function(app, db) {
       json : true
     }, function(err, resp, body) {
       if (err) return res.send({}, 500).end();
-      body.city= 'New York';
       res.send(JSON.stringify(body)).end();
     });
   });

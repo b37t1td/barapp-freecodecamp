@@ -9,7 +9,7 @@
   <h2>{{term}} in {{location}} :</h2>
   <hr />
 {{else}}
-  <h2> Looks like nothing found for you... sorry</h2>
+  <h2> Looks like nothing found for you... maybe wrong location ?</h2>
 {{/if}}
 
 <br />
@@ -26,11 +26,8 @@
 </div>
 
 <div class="desc">
-  {{#if application.user.login}}
-    <a  {{action "amGoing" item}} class="btn btn-sm btn-primary pull-right"><i class="fa fa-star"></i> &nbsp; I'll go</a>
-  {{else}}
-    <a href="/api/twitter/connect" class="btn btn-sm btn-info pull-right"><i class="fa fa-twitter"></i> &nbsp; Log in</a>
-  {{/if}}
+
+  {{user-following item=item controller=this }}
   <h3><a href="{{item.url}}">{{item.name}}</a>
 
   </h3>

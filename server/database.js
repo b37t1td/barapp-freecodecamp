@@ -13,6 +13,42 @@ module.exports = function Database(callback) {
   });
 
 
+  this.findPlace = function(id, cb) {
+    var places = db.collection('places');
+
+    places.findOne({_id : new ObjectId(id)}, function(err, data) {
+      if (err) return cb(err);
+      cb(null, data);
+    });
+  };
+
+  this.removePlace = function(id, cb) {
+    var places = db.collection('places');
+
+    places.remove({_id : new ObjectId(id)}, function(err, d) {
+      if (err) return cb(err);
+      cb(null, d);
+    });
+  };
+
+  this.findUserPlaces = function(id, cb) {
+    var places = db.collection('places');
+
+    places.find({userId : id}).toArray(function(err, data) {
+      if (err) return cb(err);
+      cb(null, data);
+    });
+  };
+
+  this.insertUserPlace = function(data,cb) {
+    var places = db.collection('places');
+
+    places.insert(data, function(err) {
+      if (err) return cb(err);
+      cb(null, true);
+    })
+  };
+
   this.createLogin = function(data, cb) {
     var logins = db.collection('logins');
     data = JSON.parse(data);

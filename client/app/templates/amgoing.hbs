@@ -1,0 +1,31 @@
+{{#if isLoading}}
+<div class="text-center">
+  <h3><i class="fa fa-spinner fa-spin"></i></h3>
+</div>
+{{/if}}
+
+<h2>My Places:</h2>
+
+<div class="row">
+{{#each places as |item|}}
+<div class="place-box col-xs-12 col-sm-6">
+<div class="graphic pull-left">
+  <div class="image">
+    <img src="{{item.image_url}}" />
+  </div>
+  <div class="stars">
+    <img src="{{item.rating_img_url}}" />
+  </div>
+</div>
+
+<div class="desc">
+  <span class="btn btn-sm btn-danger pull-right" {{action "unfollow" item}}><i class="fa fa-star"></i> &nbsp; unfollow</span>
+  <h3><a href="{{item.url}}">{{item.name}}</a>
+
+  </h3>
+  <p>{{item.snippet_text}}</p>
+</div>
+
+</div>
+{{/each}}
+</div>

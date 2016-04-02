@@ -1,0 +1,10 @@
+
+{{#if view.isFollowing}}
+  <a  {{action "unfollow" view.item target="controller"}} class="btn btn-sm btn-danger pull-right"><i class="fa fa-star"></i> &nbsp; unfollow</a>
+{{else}}
+  {{#if view.isLoggedIn}}
+    <a  {{action "amGoing" view.item target="controller"}} class="btn btn-sm btn-success pull-right"><i class="fa fa-star"></i> &nbsp; follow</a>
+  {{else}}
+    <a href="/api/twitter/connect" class="btn btn-sm btn-info pull-right"><i class="fa fa-twitter"></i> &nbsp; Log in</a>
+  {{/if}}
+{{/if}}
