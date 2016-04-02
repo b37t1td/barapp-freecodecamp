@@ -1,0 +1,29 @@
+{
+  "name": "barapp-freecodecamp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/b37t1td/barapp-freecodecamp.git"
+  },
+  "author": "Svetlana Linuxenko <linuxenko@yahoo.com> (http://www.linuxenko.pro)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/b37t1td/barapp-freecodecamp/issues"
+  },
+  "homepage": "https://github.com/b37t1td/barapp-freecodecamp#readme",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "dotenv": "^2.0.0",
+    "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "mongodb": "^2.1.14",
+    "oauth": "^0.9.14",
+    "request": "^2.69.0",
+    "yelp": "^1.0.1"
+  }
+}
