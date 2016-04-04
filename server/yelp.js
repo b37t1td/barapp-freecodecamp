@@ -11,8 +11,8 @@ module.exports = function(app, db) {
 
   app.get('/api/yelp/search/:location/:term', function(req, res) {
     var opts = {
-      term: req.params.term,
-      location : req.params.location
+      term: decodeURIComponent(req.params.term).replace(/\s/gi,'+'),
+      location : decodeURIComponent(req.params.location).replace(/\s/gi,'+')
     }
 
     if (typeof req.query.limit !== 'undefined' && req.query.offset !== 'undefined') {

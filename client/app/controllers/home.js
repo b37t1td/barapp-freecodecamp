@@ -35,7 +35,7 @@ export default Ember.Controller.extend({
     let location = encodeURIComponent(this.get('application.location.city'));
     let term = encodeURIComponent(this.get('application.term'));
 
-    let uri = '/api/yelp/search/' + term + '/' + location;
+    let uri = '/api/yelp/search/' + location + '/' + term;
     uri += '?limit=' + this.get('limit');
     uri += '&offset=' + this.get('page');
 
